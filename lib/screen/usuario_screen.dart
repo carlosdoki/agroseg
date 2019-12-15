@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'dart:convert';
+import 'package:flutter_alert/flutter_alert.dart';
 
 class Cliente {
   final String nome;
@@ -39,6 +40,8 @@ Future<Cliente> _getData() async {
   } else {
     // If that call was not successful, throw an error.
     print(response.statusCode);
+    showAlert(context: null, title: "CPF: " + cpf + " não encontrado!", );
+
     throw Exception('Failed to get');
   }
 }
@@ -58,8 +61,7 @@ class _UsuarioScreenState extends State<UsuarioScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: topoTela(
-        nomePagina:
-            'Olá, $nomeCompleto! Vamos te ajudar a encontrar o seguro rural adequado!',
+        nomePagina: nomeCompleto == null ? '' : 'Olá, $nomeCompleto! Vamos te ajudar a encontrar o seguro rural adequado!',
         boolLogo: false,
       ),
       body: Container(

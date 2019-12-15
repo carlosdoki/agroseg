@@ -3,6 +3,7 @@ import 'package:agroseg/screen/usuario_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:agroseg/components/rounded_button.dart';
 import 'package:agroseg/contants.dart';
+import 'package:flutter/services.dart';
 class LoginScreen extends StatefulWidget {
   static String id = 'login_screen';
 
@@ -55,6 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextField(
                   textAlign: TextAlign.center,
+                  keyboardType: TextInputType.number,
                   onChanged: (value) {
                     cpf = value;
                   },
