@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1092197464041",
+    "firebase_url": "https://hackagrid2019.firebaseio.com",
+    "project_id": "hackagrid2019",
+    "storage_bucket": "hackagrid2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092197464041:android:43aafa79c72327b479bd78",
+        "android_client_info": {
+          "package_name": "com.carlosdoki.agroseg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092197464041-pintchleouefl4m8k36v08k1luf9491l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXwyGHVVQwEiGZmD7Ncis44KaK-J1UrYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1092197464041-pintchleouefl4m8k36v08k1luf9491l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1092197464041-a0h566p9fsa0b2hlb3cm8qukh9e11stm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.carlosdoki.agroseg"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
