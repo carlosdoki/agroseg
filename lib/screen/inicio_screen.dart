@@ -6,26 +6,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:flutter_full_pdf_viewer/flutter_full_pdf_viewer.dart';
-import 'package:flutter_full_pdf_viewer/full_pdf_viewer_plugin.dart';
-import 'package:flutter_full_pdf_viewer/full_pdf_viewer_scaffold.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-String pathPDF = "";
-
-Future<File> createFileOfPdfUrl() async {
-  final url = "https://varcom-mp-01-boletos.s3.us-west-2.amazonaws.com/boleto-F9F8E533-18D7-A984-A7D0-4F04A0B771AD.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAUaCXVzLXdlc3QtMiJIMEYCIQD9e7OCx39z1HgOMolAFHvfEoWaE3O0irTBRqv8dZwK2gIhANCqkimcnVwo8dpylXW06QdtgyQpvR3%2BKkZyFjMjNsmmKtICCF4QABoMNTM2MzExMDQ0MjE3IgzKhVbM26VoiJoPN7QqrwKn%2F4xmwiQevHfUbbLuJ%2F96Ileyp8kEA23yNCH7P97zMPdOB%2BapGhGVa%2FeNP0BDB0jHM4j3nKiL%2FaY8xyczLL5CIZ9AO%2BLHGd7QQd%2FVTvuU3PxYNL392vms1Zboz1RpWCFiGtuNWZpxOQcUx5RN2Fr8NasjY9QcO6e0njLJ52LIhImb%2BMGrm0Gj3uYPd%2FIkfP0LPcTNpDF87lhs33GhS%2B%2BSgGVyRE8hhzJvEnN2V2GgNU0YDyVoskQ%2BSqGR7AsUED1OuZZdeMw1KGPvMixoRCLE7lWbfH31eOG7TsPBS6ZZ50Ll3pcqpf2to3bkaltebhmVZw3aVbgsgfUg3JzRvmesEi0FDyXXIWv%2Fgi4R40QcmvBgP3kRLUns8UOipfOFdYY0uwbHcjg%2FDrifD%2Fd4l5Mw7tnY7wU6zALBbTyKyjfjin1qipePNWFzX83G%2Boj8NoF4kTNrNPWijEWqsx7Htixu%2F7FDJFM7%2FBYdvVwhNraYEmB6b5flXSOtfNm4gruHBB8rnwNVWc5%2FCB%2FNjSoHIAQT9heKkSbUEo6QFE3ZsQ3uQFjpAz8lW7D9NsHrzZK3aOxJxFvOYg4rbW4PXK250EikeVIozp5HggwKXvkckh9iyTisxxFEouXL3R24AtRq2TLHasWwj3%2BwsL7dxAvq91J%2BkYHh%2BTmw%2FvkAWCIOxkAnsfBFRUSDffB7KqkOMyJXQ5In1DmHNOs%2BpfaaVsknMFXUhSXnP7elWAgfliX5Cb7fyXNQw%2FvDL4UOmZRwHWKUPyCNruA90NvZRNPet6hT0VK5ASyH3MT%2Ff6%2F1Pe3W9YwWBXgO8vmnRskIBwGmSOqejOkZfAhisWhjleCE6gNQI%2B0DBfXj8w%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191215T142546Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=ASIAXZXVBDB44D3GXYPN%2F20191215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0eafa6c63469b7332fc174c93e4f04d2fe8844ad7562fd6492766dd9bf73a6fd";
-  final filename = url.substring(url.lastIndexOf("/") + 1);
-  var request = await HttpClient().getUrl(Uri.parse(url));
-  var response = await request.close();
-  var bytes = await consolidateHttpClientResponseBytes(response);
-  String dir = (await getApplicationDocumentsDirectory()).path;
-  File file = new File('$dir/$filename');
-  await file.writeAsBytes(bytes);
-  return file;
-}
+import 'package:flutter_web_browser/flutter_web_browser.dart';
 
 Future<Map> _getData() async {
   final response = await http.post(
@@ -134,21 +115,11 @@ class InicioScreen extends StatefulWidget {
 
 class _InicioScreenState extends State<InicioScreen> {
 
-//  PDFScreen(this.pathPDF);
-
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    createFileOfPdfUrl().then((f) {
-      setState(() {
-        pathPDF = f.path;
-        print(pathPDF);
-      });
-    });
-
+  openBrowserTab() async {
+    const url ="https://varcom-mp-01-boletos.s3.us-west-2.amazonaws.com/boleto-F9F8E533-18D7-A984-A7D0-4F04A0B771AD.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAUaCXVzLXdlc3QtMiJIMEYCIQD9e7OCx39z1HgOMolAFHvfEoWaE3O0irTBRqv8dZwK2gIhANCqkimcnVwo8dpylXW06QdtgyQpvR3%2BKkZyFjMjNsmmKtICCF4QABoMNTM2MzExMDQ0MjE3IgzKhVbM26VoiJoPN7QqrwKn%2F4xmwiQevHfUbbLuJ%2F96Ileyp8kEA23yNCH7P97zMPdOB%2BapGhGVa%2FeNP0BDB0jHM4j3nKiL%2FaY8xyczLL5CIZ9AO%2BLHGd7QQd%2FVTvuU3PxYNL392vms1Zboz1RpWCFiGtuNWZpxOQcUx5RN2Fr8NasjY9QcO6e0njLJ52LIhImb%2BMGrm0Gj3uYPd%2FIkfP0LPcTNpDF87lhs33GhS%2B%2BSgGVyRE8hhzJvEnN2V2GgNU0YDyVoskQ%2BSqGR7AsUED1OuZZdeMw1KGPvMixoRCLE7lWbfH31eOG7TsPBS6ZZ50Ll3pcqpf2to3bkaltebhmVZw3aVbgsgfUg3JzRvmesEi0FDyXXIWv%2Fgi4R40QcmvBgP3kRLUns8UOipfOFdYY0uwbHcjg%2FDrifD%2Fd4l5Mw7tnY7wU6zALBbTyKyjfjin1qipePNWFzX83G%2Boj8NoF4kTNrNPWijEWqsx7Htixu%2F7FDJFM7%2FBYdvVwhNraYEmB6b5flXSOtfNm4gruHBB8rnwNVWc5%2FCB%2FNjSoHIAQT9heKkSbUEo6QFE3ZsQ3uQFjpAz8lW7D9NsHrzZK3aOxJxFvOYg4rbW4PXK250EikeVIozp5HggwKXvkckh9iyTisxxFEouXL3R24AtRq2TLHasWwj3%2BwsL7dxAvq91J%2BkYHh%2BTmw%2FvkAWCIOxkAnsfBFRUSDffB7KqkOMyJXQ5In1DmHNOs%2BpfaaVsknMFXUhSXnP7elWAgfliX5Cb7fyXNQw%2FvDL4UOmZRwHWKUPyCNruA90NvZRNPet6hT0VK5ASyH3MT%2Ff6%2F1Pe3W9YwWBXgO8vmnRskIBwGmSOqejOkZfAhisWhjleCE6gNQI%2B0DBfXj8w%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191215T142546Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=ASIAXZXVBDB44D3GXYPN%2F20191215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0eafa6c63469b7332fc174c93e4f04d2fe8844ad7562fd6492766dd9bf73a6fd";
+    await FlutterWebBrowser.openWebPage(url: Uri.encodeFull(url), androidToolbarColor: Colors.deepPurple);
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -241,12 +212,7 @@ class _InicioScreenState extends State<InicioScreen> {
                                   color: Colors.black12,
                                   borderRadius: BorderRadius.circular(30.0),
                                   child: MaterialButton(
-                                    onPressed: () {
-                                      _launchURL;
-//                                      Navigator.push(
-//                                          context,
-//                                          MaterialPageRoute(builder: (context) => PDFScreen(pathPDF)));
-                                    },
+                                    onPressed: () => openBrowserTab(),
                                     minWidth: 160.0,
                                     height: 25.0,
                                     child: Text(
@@ -381,31 +347,12 @@ class _InicioScreenState extends State<InicioScreen> {
   }
 }
 
-class PDFScreen extends StatelessWidget {
-  String pathPDF = "";
-  PDFScreen(this.pathPDF);
-
-  @override
-  Widget build(BuildContext context) {
-    return PDFViewerScaffold(
-        appBar: AppBar(
-          title: Text("Document"),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.share),
-              onPressed: () {},
-            ),
-          ],
-        ),
-        path: pathPDF);
-  }
-}
 
 _launchURL() async {
   const url ="https://varcom-mp-01-boletos.s3.us-west-2.amazonaws.com/boleto-F9F8E533-18D7-A984-A7D0-4F04A0B771AD.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAUaCXVzLXdlc3QtMiJIMEYCIQD9e7OCx39z1HgOMolAFHvfEoWaE3O0irTBRqv8dZwK2gIhANCqkimcnVwo8dpylXW06QdtgyQpvR3%2BKkZyFjMjNsmmKtICCF4QABoMNTM2MzExMDQ0MjE3IgzKhVbM26VoiJoPN7QqrwKn%2F4xmwiQevHfUbbLuJ%2F96Ileyp8kEA23yNCH7P97zMPdOB%2BapGhGVa%2FeNP0BDB0jHM4j3nKiL%2FaY8xyczLL5CIZ9AO%2BLHGd7QQd%2FVTvuU3PxYNL392vms1Zboz1RpWCFiGtuNWZpxOQcUx5RN2Fr8NasjY9QcO6e0njLJ52LIhImb%2BMGrm0Gj3uYPd%2FIkfP0LPcTNpDF87lhs33GhS%2B%2BSgGVyRE8hhzJvEnN2V2GgNU0YDyVoskQ%2BSqGR7AsUED1OuZZdeMw1KGPvMixoRCLE7lWbfH31eOG7TsPBS6ZZ50Ll3pcqpf2to3bkaltebhmVZw3aVbgsgfUg3JzRvmesEi0FDyXXIWv%2Fgi4R40QcmvBgP3kRLUns8UOipfOFdYY0uwbHcjg%2FDrifD%2Fd4l5Mw7tnY7wU6zALBbTyKyjfjin1qipePNWFzX83G%2Boj8NoF4kTNrNPWijEWqsx7Htixu%2F7FDJFM7%2FBYdvVwhNraYEmB6b5flXSOtfNm4gruHBB8rnwNVWc5%2FCB%2FNjSoHIAQT9heKkSbUEo6QFE3ZsQ3uQFjpAz8lW7D9NsHrzZK3aOxJxFvOYg4rbW4PXK250EikeVIozp5HggwKXvkckh9iyTisxxFEouXL3R24AtRq2TLHasWwj3%2BwsL7dxAvq91J%2BkYHh%2BTmw%2FvkAWCIOxkAnsfBFRUSDffB7KqkOMyJXQ5In1DmHNOs%2BpfaaVsknMFXUhSXnP7elWAgfliX5Cb7fyXNQw%2FvDL4UOmZRwHWKUPyCNruA90NvZRNPet6hT0VK5ASyH3MT%2Ff6%2F1Pe3W9YwWBXgO8vmnRskIBwGmSOqejOkZfAhisWhjleCE6gNQI%2B0DBfXj8w%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191215T142546Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=ASIAXZXVBDB44D3GXYPN%2F20191215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0eafa6c63469b7332fc174c93e4f04d2fe8844ad7562fd6492766dd9bf73a6fd";
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
+//  if (await canLaunch(Uri.encodeFull(url))) {
+//    await launch(url);
+//  } else {
+//    throw 'Could not launch $url';
+//  }
 }
