@@ -40,7 +40,6 @@ Future<Cliente> _getData() async {
   } else {
     // If that call was not successful, throw an error.
     print(response.statusCode);
-    showAlert(context: null, title: "CPF: " + cpf + " não encontrado!", );
 
     throw Exception('Failed to get');
   }

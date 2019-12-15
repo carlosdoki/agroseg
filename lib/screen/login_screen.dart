@@ -55,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 15,
               ),
               TextField(
+                  style: TextStyle(color: Colors.white),
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
                   onChanged: (value) {
