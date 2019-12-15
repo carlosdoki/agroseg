@@ -116,7 +116,7 @@ class InicioScreen extends StatefulWidget {
 class _InicioScreenState extends State<InicioScreen> {
 
   openBrowserTab() async {
-    const url ="https://varcom-mp-01-boletos.s3.us-west-2.amazonaws.com/boleto-F9F8E533-18D7-A984-A7D0-4F04A0B771AD.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAUaCXVzLXdlc3QtMiJIMEYCIQD9e7OCx39z1HgOMolAFHvfEoWaE3O0irTBRqv8dZwK2gIhANCqkimcnVwo8dpylXW06QdtgyQpvR3%2BKkZyFjMjNsmmKtICCF4QABoMNTM2MzExMDQ0MjE3IgzKhVbM26VoiJoPN7QqrwKn%2F4xmwiQevHfUbbLuJ%2F96Ileyp8kEA23yNCH7P97zMPdOB%2BapGhGVa%2FeNP0BDB0jHM4j3nKiL%2FaY8xyczLL5CIZ9AO%2BLHGd7QQd%2FVTvuU3PxYNL392vms1Zboz1RpWCFiGtuNWZpxOQcUx5RN2Fr8NasjY9QcO6e0njLJ52LIhImb%2BMGrm0Gj3uYPd%2FIkfP0LPcTNpDF87lhs33GhS%2B%2BSgGVyRE8hhzJvEnN2V2GgNU0YDyVoskQ%2BSqGR7AsUED1OuZZdeMw1KGPvMixoRCLE7lWbfH31eOG7TsPBS6ZZ50Ll3pcqpf2to3bkaltebhmVZw3aVbgsgfUg3JzRvmesEi0FDyXXIWv%2Fgi4R40QcmvBgP3kRLUns8UOipfOFdYY0uwbHcjg%2FDrifD%2Fd4l5Mw7tnY7wU6zALBbTyKyjfjin1qipePNWFzX83G%2Boj8NoF4kTNrNPWijEWqsx7Htixu%2F7FDJFM7%2FBYdvVwhNraYEmB6b5flXSOtfNm4gruHBB8rnwNVWc5%2FCB%2FNjSoHIAQT9heKkSbUEo6QFE3ZsQ3uQFjpAz8lW7D9NsHrzZK3aOxJxFvOYg4rbW4PXK250EikeVIozp5HggwKXvkckh9iyTisxxFEouXL3R24AtRq2TLHasWwj3%2BwsL7dxAvq91J%2BkYHh%2BTmw%2FvkAWCIOxkAnsfBFRUSDffB7KqkOMyJXQ5In1DmHNOs%2BpfaaVsknMFXUhSXnP7elWAgfliX5Cb7fyXNQw%2FvDL4UOmZRwHWKUPyCNruA90NvZRNPet6hT0VK5ASyH3MT%2Ff6%2F1Pe3W9YwWBXgO8vmnRskIBwGmSOqejOkZfAhisWhjleCE6gNQI%2B0DBfXj8w%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191215T142546Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=ASIAXZXVBDB44D3GXYPN%2F20191215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0eafa6c63469b7332fc174c93e4f04d2fe8844ad7562fd6492766dd9bf73a6fd";
+    const url ="https://varcom-mp-01-boletos.s3.us-west-2.amazonaws.com/boleto-335CC880-8EA6-1E54-0D82-B079FE293B8F.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAYaCXVzLXdlc3QtMiJIMEYCIQDvPtFmLrcu5iNlXSjyxtcfNYuTpp20O2B1EAT8elb48AIhAMWFZ7766x54qGz%2BtQqvMNTI%2FUTYzfzgFEmJGRMiUfMiKtICCF8QABoMNTM2MzExMDQ0MjE3IgwpCkecILMrqyDu2OsqrwKSniJCXi2cy8z4%2BkWmv%2FnDP0WaOtsHM48UCV5KEYPInWfTQOibqfEu2eYY6wECGl%2Bw6qq7PF0eK0cZKD0yJU70jGqElZdU5WWdckiAaG4ZslQcflRb5x5JXLr0QVOYu0Nlu97jqVPHvTjKnRuD1FsKneuUEnw925TT84EOrgWqnlt0FmKee6mMhx7fF%2BXRr1iqQ2DE1fEWT8U7ra%2BHvZC5iL9h3gePktCM7ChbLgMhfkJuB621rF%2FEARezTGCefYfKvMrrvuwQgmEwGGxUaELwLn4TjycD%2BOAt33HMw%2Fi5sCR2p46FnOslHM7mVUV23et60EMBx%2Br5qxwWKxkImYWSREo04cPjWUt5DlNAamcSESaD32Mxy5w0OTpbAc%2BaIb9C9R2rBebR%2FcoDR%2FctgeAwgfbY7wU6zAI4tJPKR47digZf2dVVm20hB1582gOQEqJVzFq3QSlV755ggLezax4RRw4yeMtQ9WnBA%2FbuZxM6ze89nKmMl6Nb74XwDJOHAxT6YyfHadvlm3ThKRMRvVYVgHGz3j4uGA3yxXIR74UNa2qM%2FZmDhtUcCQ5VZqXCzdgUmf%2FXuAEmpg1l1yFYhsmMyj0lpGaZj3ecaP9M5U52q9d8SIRfIPt4IIfb8gwRE965FroRu37u7LKsKaNZ3UR1Ti7yAB8b%2BDphHwwcwc74IvYMLYZEq7NmBL1FBIVGtGvz9QU6wTit58nOuFHLClTxzAFTiGyafRCaXIn2%2FmbIHaFR1S83d%2FFSWmsLhODxBbMOudlkr90zp3d3LP9Vdkcaolc412le3McT9KcG9qHEPwJ2xL%2BwgtOxO5b%2BzInltFu6t4S9WfPS%2Be%2BFTfo3CIkAjaGWOQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191215T152118Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=ASIAXZXVBDB4ZYYEZJ67%2F20191215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=d73fc4e8fb916600bc354299e705fa0de9cfe3fd5310fc677715072df5cccb44";
     await FlutterWebBrowser.openWebPage(url: url, androidToolbarColor: Colors.deepPurple);
   }
 
@@ -209,7 +209,7 @@ class _InicioScreenState extends State<InicioScreen> {
                                 padding: EdgeInsets.symmetric(vertical: 3.0),
                                 child: Material(
                                   elevation: 3.0,
-                                  color: Colors.black12,
+                                  color: Color(0xFF8EBC7A),
                                   borderRadius: BorderRadius.circular(30.0),
                                   child: MaterialButton(
                                     onPressed: () => openBrowserTab(),
@@ -218,7 +218,7 @@ class _InicioScreenState extends State<InicioScreen> {
                                     child: Text(
                                       'Ver Boleto',
                                       style: TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.white,
                                         fontSize: 15.0,
                                       ),
                                     ),
